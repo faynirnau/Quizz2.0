@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.quizz20.R;
 import com.example.quizz20.model.Question;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
