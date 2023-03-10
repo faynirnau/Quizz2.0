@@ -1,5 +1,6 @@
 package com.example.quizz20.controller;
 
+import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -9,11 +10,13 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.quizz20.R;
+import com.example.quizz20.model.User;
 
 public class MainActivity extends AppCompatActivity {
     private TextView nomAppTextView;
     private EditText nomJoueurEditText;
     private Button boutonStart;
+    private User prenomJoueur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
         boutonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                prenomJoueur.setPrenom(nomJoueurEditText.getText().toString());
+                Intent questionActivityIntent = new Intent(MainActivity.this, QuestionActivity.class);
+                startActivity(questionActivityIntent);
             }
         });
 
