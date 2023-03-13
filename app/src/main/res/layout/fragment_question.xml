@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="4dp"
-    android:background="#BA96FF">
+    tools:context=".controller.QuestionFragment"
+    android:id="@+id/questionFragment">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:background="#BA96FF">
+
+        <TextView
             android:id="@+id/textViewQuestion1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -19,40 +25,56 @@
             android:textColor="#000000"
             android:textSize="34sp"/>
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <Button
+            <Button
                 android:id="@+id/reponseA"
                 style="@style/Widget.MaterialComponents.Button"
 
                 android:layout_width="190dp"
                 android:layout_height="90dp"
                 android:text="Rouge"/>
-        <Button
+            <Button
                 android:id="@+id/reponseB"
                 android:layout_width="190dp"
                 android:layout_height="90dp"
                 android:text="brun"/>
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-        <Button
+            <Button
                 android:id="@+id/reponseC"
-                android:layout_width="185dp"
+                android:layout_width="190dp"
                 android:layout_height="90dp"
-                android:text="blanc"/>
+                android:text="blanc" />
 
-        <Button
+            <Button
                 android:id="@+id/reponseD"
-                android:layout_width="185dp"
+                android:layout_width="190dp"
                 android:layout_height="90dp"
-                android:text="la reponse D"/>
+                android:text="la reponse D" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/pikaOmbre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pikachu_noir"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/pikaBulbi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pikachu"
+            android:visibility="gone" />
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

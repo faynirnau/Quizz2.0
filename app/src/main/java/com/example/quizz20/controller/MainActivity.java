@@ -1,6 +1,5 @@
 package com.example.quizz20.controller;
 
-import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -9,19 +8,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import com.example.quizz20.R;
-import com.example.quizz20.model.User;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView nomAppTextView;
+    private TextView titre;
     private EditText nomJoueurEditText;
     private Button boutonStart;
-    private User prenomJoueur;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        nomAppTextView = findViewById(R.id.nomAppTextView);
+        titre = findViewById(R.id.nomAppTextView);
         nomJoueurEditText = findViewById(R.id.nomJoueurEditText);
         boutonStart = findViewById(R.id.StartButton);
         boutonStart.setEnabled(false);
@@ -42,14 +41,21 @@ public class MainActivity extends AppCompatActivity {
                 boutonStart.setEnabled(!s.toString().isEmpty());
             }
         });
+
         boutonStart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                prenomJoueur.setPrenom(nomJoueurEditText.getText().toString());
-                Intent questionActivityIntent = new Intent(MainActivity.this, QuestionActivity.class);
-                startActivity(questionActivityIntent);
+            public void onClick(View view) {
+                replaceFragment(new QuestionFragment());
+                titre.setVisibility(View.GONE);
+                boutonStart.setVisibility(View.GONE);
+                nomJoueurEditText.setVisibility(View.GONE);
+            }
+            private void replaceFragment(QuestionFragment questionFragment){
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.frameLayout, questionFragment);
+                fragmentTransaction.commit();
             }
         });
-
     }
 }
