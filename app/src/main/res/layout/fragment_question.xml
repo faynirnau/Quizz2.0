@@ -15,7 +15,7 @@
         android:background="#BA96FF">
 
         <TextView
-            android:id="@+id/textViewQuestion1"
+            android:id="@+id/textViewQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
