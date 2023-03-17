@@ -2,7 +2,6 @@ package com.example.quizz20.modele;
 
 import android.os.AsyncTask;
 import android.util.Log;
-
 import java.sql.*;
 
 
@@ -13,6 +12,22 @@ public class Bdd extends AsyncTask<String, Void, String> {
     private Statement st = null;
     private ResultSet rs = null;
     private ResultSetMetaData rsmd = null;
+
+    public Connection getCon() {
+        return con;
+    }
+
+    public Statement getSt() {
+        return st;
+    }
+
+    public ResultSet getRs() {
+        return rs;
+    }
+
+    public ResultSetMetaData getRsmd() {
+        return rsmd;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
